@@ -7,27 +7,25 @@ public class Longest_Substring_Without_Repeating_Characters_3 {
 	}
 	
 	public static int lengthOfLongestSubstring(String s) {
-        String res = "";
-        String tmp = "";
-        
         int start = 0;
         int idx = 0;
+        int maxlength = 0;
         
         while(idx < s.length()) {
         	if(start > idx) {
         		break;
         	}
-        	if(!tmp.contains("" + s.charAt(idx))) {
-        		tmp += s.charAt(idx++);
-        		if(tmp.length() > res.length()) res = tmp.toString();
+        	
+        	if(!s.substring(start, idx).contains(""+s.charAt(idx))) {
+        		idx++;
+        		maxlength = (maxlength - (idx - start) > 0) ? maxlength : (idx - start);
         		continue;
         	}
+        	
         	start++;
-        	idx = start;
-        	tmp = "";
         }
         
-        return res.length();
+        return maxlength;
     }
 
 }

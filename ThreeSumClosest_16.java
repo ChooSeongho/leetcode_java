@@ -27,10 +27,6 @@ public class ThreeSumClosest_16 {
 
     		while(left < right) {
     			int temp_res = nums[left] + nums[right] + nums[i];
-    			System.out.println("res = " + res);
-    			System.out.println("i = " + i + " left = " + left + " right = " + right);
-    			System.out.println("temp_res = " + temp_res);
-    			System.out.println("target-res = " + (target-res));
     			if (temp_res < target) {
     				left++;
     			} else if (temp_res > target) {
@@ -42,7 +38,6 @@ public class ThreeSumClosest_16 {
     			if(Math.abs(target - temp_res) < Math.abs(target - res)) {
     				res = temp_res;
     			}
-    			System.out.println("---------------");
     	      }
     	}
     	return res;
